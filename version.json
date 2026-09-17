@@ -1,10 +1,32 @@
 {
-  "latest": "1.16.3",
+  "latest": "1.19.4",
   "min_required": "1.0.0",
   "android_url": "https://play.google.com/store/apps/details?id=com.leogranata.ivuplus",
   "ios_url": "https://apps.apple.com/app/id6758614108",
+  "macos_url": "https://apps.apple.com/app/id6758614108",
   "check_enabled": {
     "android": true,
-    "ios": false
+    "ios": true,
+    "macos": true
+  },
+  "platforms": {
+    "android": {
+      "latest": "1.19.4",
+      "min_required": "1.0.0",
+      "url": "https://play.google.com/store/apps/details?id=com.leogranata.ivuplus",
+      "enabled": true
+    },
+    "ios": {
+      "latest": "1.19.4",
+      "min_required": "1.0.0",
+      "url": "https://apps.apple.com/app/id6758614108",
+      "enabled": true
+    },
+    "macos": {
+      "latest": "1.19.4",
+      "min_required": "1.0.0",
+      "url": "https://apps.apple.com/app/id6758614108",
+      "enabled": true
+    }
   }
 }

@@ -1,4 +1,4 @@
-# Sito web IVU Plus (`docs/site`)
+# Sito web Crew+ (`docs/site`)
 
 > **Stato: sospeso (set 2026)** — online solo documentazione legale per gli store.
 > Endpoint attivi: `#privacy`, `#termini`, `#account-deletion`, `version.json`.
@@ -51,45 +51,54 @@ File **non** presenti in `docs/site` ma preservati nel repo Pages:
 
 URL pubblico: **https://ivuplus.leogranata.it/version.json**
 
-L’app Flutter legge questo JSON (max 1 volta / 24 h) per invitare ad aggiornare dallo store. Non va committato in `docs/site`: vive solo nel repo **IVUPlus-site** e viene preservato ad ogni deploy.
+L’app Flutter legge questo JSON (max 1 volta / 24 h) per invitare ad aggiornare dallo store. Supporta versioni indipendenti per **Android**, **iOS** e **macOS**. Non va committato in `docs/site`: vive solo nel repo **IVUPlus-site** e viene preservato ad ogni deploy.
 
-### Schema
+### Schema multi-piattaforma
 
 ```json
 {
-  "latest": "1.16.3",
+  "latest": "1.19.4",
   "min_required": "1.0.0",
   "android_url": "https://play.google.com/store/apps/details?id=com.leogranata.ivuplus",
   "ios_url": "https://apps.apple.com/app/id6758614108",
+  "macos_url": "https://apps.apple.com/app/id6758614108",
   "check_enabled": {
     "android": true,
-    "ios": false
+    "ios": true,
+    "macos": true
+  },
+  "platforms": {
+    "android": {
+      "latest": "1.19.4",
+      "min_required": "1.0.0",
+      "url": "https://play.google.com/store/apps/details?id=com.leogranata.ivuplus",
+      "enabled": true
+    },
+    "ios": {
+      "latest": "1.19.4",
+      "min_required": "1.0.0",
+      "url": "https://apps.apple.com/app/id6758614108",
+      "enabled": true
+    },
+    "macos": {
+      "latest": "1.19.4",
+      "min_required": "1.0.0",
+      "url": "https://apps.apple.com/app/id6758614108",
+      "enabled": true
+    }
   }
 }
 ```
 
-| Campo | Significato |
-|-------|-------------|
-| `latest` | Ultima versione sugli store (semver) |
-| `min_required` | Sotto questa soglia l’aggiornamento è obbligatorio |
-| `android_url` / `ios_url` | Link agli store |
-| `check_enabled.android` | Controllo attivo su Android |
-| `check_enabled.ios` | `false` finché iOS non è in production store; poi `true` |
-
 ### Dopo ogni release store
 
 ```bash
-make sync-version-manifest
-cd ../IVUPlus-site && git add version.json && git commit -m "chore(site): aggiorna version.json" && git push
+# Aggiorna e pubblica direttamente su GitHub Pages
+make sync-version-manifest PLATFORM=android PUSH=1
+make sync-version-manifest PLATFORM=ios PUSH=1
+make sync-version-manifest PLATFORM=macos PUSH=1
+make sync-version-manifest PLATFORM=all PUSH=1
 ```
-
-Oppure generazione manuale:
-
-```bash
-./scripts/versioning/generate_version_manifest.sh 1.0.0 ../IVUPlus-site/version.json
-```
-
-Il primo argomento è `min_required` (default `1.0.0`); `latest` viene letto da `pubspec.yaml`.
 
 Documentazione completa (comportamento app, dialog obbligatorio/opzionale, go-live iOS):
 
