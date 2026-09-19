@@ -4,7 +4,7 @@
 > Endpoint attivi: `#privacy`, `#termini`, `#account-deletion`, `version.json`.
 > Sito marketing archiviato in `marketing/`; riattivazione: `YES=1 make resume-site`.
 
-Sorgente statica del sito (pubblicazione su **GitHub Pages** → `ivuplus.leogranata.it`).
+Sorgente statica del sito (pubblicazione su **GitHub Pages** → `crewplus.leogranata.it`).
 
 | Percorso | Contenuto |
 |----------|-----------|
@@ -14,7 +14,7 @@ Sorgente statica del sito (pubblicazione su **GitHub Pages** → `ivuplus.leogra
 | `style.css` | Stili condivisi |
 | `assets/banner-source.jpg` | Sorgente banner (solo build locale) |
 
-**Repo di deploy**: [Leottantuno/IVUPlus-site](https://github.com/Leottantuno/IVUPlus-site) (branch `main`).
+**Repo di deploy**: [Leottantuno/CrewPlus-site](https://github.com/Leottantuno/CrewPlus-site) (branch `main`).
 
 ## Comandi
 
@@ -22,7 +22,7 @@ Sorgente statica del sito (pubblicazione su **GitHub Pages** → `ivuplus.leogra
 # Ottimizza logo, favicon, banner, og-image
 make optimize-site-images
 
-# Sincronizza docs/site → IVUPlus-site (preserva CNAME e version.json)
+# Sincronizza docs/site → CrewPlus-site (preserva CNAME e version.json)
 YES=1 PUSH=1 make deploy-site MESSAGE='feat(site): ...'   # default SITE_MODE=legal
 
 # Solo endpoint legali (default dopo sospensione marketing)
@@ -44,14 +44,14 @@ File **non** presenti in `docs/site` ma preservati nel repo Pages:
 
 | File | Ruolo |
 |------|--------|
-| `CNAME` | Dominio custom `ivuplus.leogranata.it` |
+| `CNAME` | Dominio custom `crewplus.leogranata.it` |
 | `version.json` | Manifest controllo aggiornamenti in-app |
 
 ## `version.json`
 
-URL pubblico: **https://ivuplus.leogranata.it/version.json**
+URL pubblico: **https://crewplus.leogranata.it/version.json**
 
-L’app Flutter legge questo JSON (max 1 volta / 24 h) per invitare ad aggiornare dallo store. Supporta versioni indipendenti per **Android**, **iOS** e **macOS**. Non va committato in `docs/site`: vive solo nel repo **IVUPlus-site** e viene preservato ad ogni deploy.
+L’app Flutter legge questo JSON (max 1 volta / 24 h) per invitare ad aggiornare dallo store. Supporta versioni indipendenti per **Android**, **iOS** e **macOS**. Non va committato in `docs/site`: vive solo nel repo **CrewPlus-site** e viene preservato ad ogni deploy.
 
 ### Schema multi-piattaforma
 
