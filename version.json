@@ -1,5 +1,5 @@
 {
-  "latest": "1.20.0",
+  "latest": "1.20.2",
   "min_required": "1.0.0",
   "android_url": "https://play.google.com/store/apps/details?id=com.leogranata.ivuplus",
   "ios_url": "https://apps.apple.com/app/id6758614108",
@@ -11,13 +11,13 @@
   },
   "platforms": {
     "android": {
-      "latest": "1.20.0",
+      "latest": "1.20.2",
       "min_required": "1.0.0",
       "url": "https://play.google.com/store/apps/details?id=com.leogranata.ivuplus",
       "enabled": true
     },
     "ios": {
-      "latest": "1.20.0",
+      "latest": "1.20.2",
       "min_required": "1.0.0",
       "url": "https://apps.apple.com/app/id6758614108",
       "enabled": true
