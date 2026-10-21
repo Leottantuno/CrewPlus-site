@@ -66,7 +66,7 @@
                 <div class="legal-page-inner">
                 <a href="#home" class="back-link" onclick="return showSection('home')">← Indice legale</a>
                 <h2>Informativa sulla privacy – Crew+</h2>
-                <p class="update-date">Ultimo aggiornamento: 7 agosto 2026</p>
+                <p class="update-date">Ultimo aggiornamento: 21 ottobre 2026</p>
 
                 <h3>1. Titolare del trattamento</h3>
                 <p>Il titolare del trattamento dei dati personali relativi all’uso dell’applicazione Crew+ è:</p>
@@ -77,7 +77,9 @@
 
                 <h3>2. Oggetto</h3>
                 <p>Crew+ è un’applicazione che consente di accedere al portale dei turni tramite browser integrato
-                    (WebView) e, se l’utente lo sceglie, di copiare i turni sul calendario di sistema del dispositivo.</p>
+                    (WebView), di organizzare i turni di servizio e, se l’utente lo sceglie, di copiare i turni sul
+                    calendario di sistema del dispositivo o di sincronizzarli tra i propri dispositivi personali tramite
+                    la funzione «Dispositivi collegati».</p>
                 <p>La presente informativa descrive come il Titolare tratta i dati nell’ambito dell’app. L’accesso ai
                     siti e ai servizi del portale WebCrew Trenitalia avviene su infrastrutture del relativo gestore:
                     per quella parte possono applicarsi informative e condizioni del gestore del portale, che non sono
@@ -86,17 +88,27 @@
                 <h3>3. Categorie di dati trattati</h3>
                 <p>A seconda delle funzioni che utilizzi, possono essere trattati:</p>
                 <ul>
-                    <li>Credenziali e identificativi per l’accesso al portale (ad esempio nome utente; la password viene
-                        trattata in modo da ridurre il rischio di uso improprio sul dispositivo, inclusa protezione
-                        crittografica prima della memorizzazione locale).</li>
+                    <li><strong>Credenziali e identificativi di accesso al portale</strong> (ad esempio nome utente / matricola;
+                        la password viene protetta con crittografia forte AES-256 e archiviata esclusivamente nel Secure Storage
+                        locale del dispositivo). <em>Le credenziali di accesso al portale aziendale non vengono mai trasmesse
+                        ai server cloud dello sviluppatore né sincronizzate tra dispositivi.</em></li>
                     <li>ID univoco e personnel-number associati al profilo nell’app.</li>
-                    <li>Dati relativi ai turni e alle informazioni visualizzate, estratte o memorizzate tramite l’app per
-                        fornirti le funzionalità richieste.</li>
-                    <li>Preferenze e impostazioni dell’applicazione (ad esempio opzioni di sincronizzazione e calendari
-                        di sistema selezionati).</li>
+                    <li>Dati relativi ai turni, note di servizio, allegati multimediali (foto/documenti compressi) e annotazioni
+                        manuali (ritardi, premi, km) visualizzate, estratte o memorizzate per fornirti le funzionalità richieste.</li>
+                    <li>Dati contrattuali del profilo (alias, sezione contrattuale, livello, scatti retributivi e data di assunzione),
+                        utilizzati per il calcolo locale delle stime retributive.</li>
+                    <li>Preferenze e impostazioni dell’applicazione. Le impostazioni hardware o strettamente legate al singolo
+                        dispositivo (sveglie/allarmi orari, preferenze grafiche dell'interfaccia, diagnostica locale e calendari
+                        di sistema) restano esclusivamente locali e non sono oggetto di sincronizzazione cloud.</li>
+                    <li><strong>Dati sincronizzati tramite «Dispositivi collegati»</strong> (solo se attivi volontariamente
+                        la sincronizzazione multi-dispositivo): turni, note, allegati compressi, annotazioni di turno e profilo
+                        contrattuale vengono protetti con <em>crittografia end-to-end (E2EE)</em> prima dell'invio.</li>
                     <li>Se attivi «Segnalazione errori» nelle Impostazioni: dati tecnici di diagnostica (tipo di errore,
                         stack trace, versione app, modello dispositivo). Non includono password, token, credenziali né
                         il contenuto dei turni.</li>
+                    <li>Se usi «Segui treno»: numero del treno, stazione e orari rilevanti del turno; su iOS, per aggiornare
+                        la Live Activity a app chiusa, anche un identificativo tecnico e il relativo token push. Non vengono
+                        inviate credenziali WebCrew.</li>
                     <li>Se attivi Crew+ Pro: identificativi e stato abbonamento gestiti dallo store e da RevenueCat
                         (non include password del portale WebCrew).</li>
                 </ul>
@@ -105,25 +117,42 @@
                 <p>I dati sono trattati per:</p>
                 <ul>
                     <li>consentirti l’uso dell’app e l’accesso alle funzioni richieste (esecuzione di misure
-                        precontrattuali / contrattuali su richiesta dell’interessato, ove applicabile);</li>
+                        precontrattuali / contrattuali su richiesta dell’interessato);</li>
                     <li>copiare i turni sul calendario del dispositivo quando lo attivi (consenso e/o esecuzione delle
-                        tue istruzioni, a seconda del contesto e della configurazione);</li>
+                        tue istruzioni);</li>
+                    <li>consentire la sincronizzazione crittografata tra più dispositivi personali dell'utente tramite
+                        la funzione «Dispositivi collegati», su espressa richiesta e iniziativa dell'interessato;</li>
                     <li>garantire sicurezza e corretto funzionamento dell’app (misure tecniche, prevenzione abusi,
-                        legittimo interesse ove compatibile con i tuoi diritti);</li>
+                        legittimo interesse);</li>
                     <li>migliorare stabilità e qualità dell’app tramite segnalazione errori, solo con il tuo consenso
                         esplicito (opt-in);</li>
+                    <li>fornire «Segui treno» (aggiornamenti di stato e, su iOS, Live Activity);</li>
                     <li>gestire l’abbonamento Pro tramite Apple App Store o Google Play e RevenueCat.</li>
                 </ul>
 
-                <h3>5. Modalità del trattamento e luogo</h3>
-                <p>Salvo quanto indicato per i servizi di terze parti, i dati sono in larga parte elaborati e conservati
-                    sul dispositivo dell’utente, con strumenti di archiviazione locale e, ove previsto, archiviazione
-                    sicura offerta dal sistema operativo.</p>
-                <p>Le comunicazioni di rete avvengono tramite protocolli crittografati comuni (ad esempio HTTPS) quando i
-                    servizi remoti li supportano.</p>
+                <h3>5. Modalità del trattamento, luogo e architettura Zero-Knowledge</h3>
+                <p>Salvo quanto indicato per i servizi di sincronizzazione e terze parti, i dati sono elaborati e conservati
+                    sul dispositivo dell’utente, con strumenti di archiviazione locale e secure storage protetto dal sistema operativo.</p>
+                <p>Qualora utilizzi la funzione <strong>«Dispositivi collegati»</strong>, la sincronizzazione online opera
+                    secondo il modello <strong>Zero-Knowledge con Crittografia End-to-End (E2EE)</strong>:</p>
+                <ul>
+                    <li>Il pacchetto dati viene integralmente cifrato sul dispositivo con algoritmo simmetrico forte <strong>AES-256-GCM</strong>
+                        prima di essere trasmesso via rete su canale sicuro HTTPS.</li>
+                    <li>La chiave crittografica viene generata in locale dal dispositivo master e scambiata con i dispositivi secondari
+                        esclusivamente tramite scansione diretta del codice QR, senza transitare in chiaro su alcun server.</li>
+                    <li>Sull'infrastruttura cloud di sincronizzazione risiedono esclusivamente sequenze binarie cifrate indecifrabili,
+                        associate a un identificativo pseudonimo casuale (<code>syncId</code>).</li>
+                    <li><strong>Il Titolare non dispone delle chiavi crittografiche, non può in alcun modo decifrare, visualizzare,
+                        elaborare o condividere i dati dei turni, delle note o del profilo dell’utente</strong>, né esegue profilazione
+                        sui pacchetti ospitati.</li>
+                </ul>
 
                 <h3>6. Destinatari e responsabili</h3>
                 <ul>
+                    <li><strong>Infrastruttura del Titolare (Google Cloud: Cloud Run / Cloud Storage con server nell’Unione Europea)</strong>:
+                        fornisce il relay e lo storage sicuro per i pacchetti cifrati E2EE della funzione «Dispositivi collegati»
+                        (modello Zero-Knowledge, nessun dato in chiaro o credenziale memorizzata) e gestisce gli aggiornamenti push
+                        della Live Activity «Segui treno» su iOS.</li>
                     <li>Provider del calendario di sistema del dispositivo (API del sistema operativo), solo se concedi
                         i permessi e configuri i calendari in app. Se il calendario del dispositivo è sincronizzato dal
                         sistema operativo verso servizi cloud (ad esempio Google o iCloud), si applicano le informative
@@ -131,25 +160,25 @@
                     <li>Gestore del portale cui si accede tramite l’app (WebCrew Trenitalia), per i dati inseriti,
                         trasmessi o consultati sui suoi sistemi.</li>
                     <li>Functional Software, Inc. (Sentry), solo se attivi «Segnalazione errori» nelle Impostazioni:
-                        riceve report tecnici di crash e malfunzionamenti. Puoi disattivare l’opzione in qualsiasi
-                        momento; senza opt-in non viene inviato nulla. Informativa: <a
+                        riceve report tecnici di crash e malfunzionamenti (opt-in esplicito). Informativa: <a
                             href="https://sentry.io/privacy/" target="_blank"
                             rel="noopener noreferrer">https://sentry.io/privacy/</a></li>
+                    <li>Servizi pubblici di informobilità (ViaggiaTreno / RFI) interrogati per lo stato treno, senza credenziali.</li>
                     <li>Apple, Google e RevenueCat, solo in relazione ad acquisti e stato dell’abbonamento Crew+ Pro.</li>
                 </ul>
-                <p>Il Titolare non vende i dati personali.</p>
+                <p>Il Titolare non vende né cede a terzi dati personali.</p>
 
                 <h3>7. Trasferimenti verso paesi extra-UE</h3>
-                <p>L’uso di Sentry (se opt-in) e dei servizi di store/RevenueCat può comportare trattamenti e trasferimenti
-                    verso paesi extra-UE secondo le garanzie descritte nella documentazione e nelle informative dei
-                    rispettivi fornitori. Lo stesso può valere per i servizi cloud a cui il sistema operativo sincronizza
-                    il calendario del dispositivo.</p>
+                <p>L’infrastruttura di sincronizzazione cloud di Crew+ è ospitata all’interno dell’Unione Europea. L’eventuale
+                    uso di Sentry (se opt-in) e dei servizi di store/RevenueCat può comportare trattamenti e trasferimenti
+                    secondo le garanzie descritte nelle informative dei rispettivi fornitori. Lo stesso vale per i servizi
+                    cloud personali a cui il sistema operativo dell'utente sincronizza il calendario del dispositivo.</p>
 
                 <h3>8. Conservazione</h3>
-                <p>I dati sono conservati per il tempo necessario a fornire le funzioni dell’app e secondo le scelte
-                    dell’utente (ad esempio disinstallazione dell’app e cancellazione dei dati locali), salvo obblighi
-                    legali. I report di errore su Sentry seguono le policy di conservazione del servizio e cessano di
-                    essere inviati quando disattivi l’opt-in.</p>
+                <p>I dati sul dispositivo sono conservati secondo le scelte dell’utente (fino alla cancellazione manuale o
+                    disinstallazione). I dati cifrati memorizzati online per la funzione «Dispositivi collegati» restano
+                    disponibili per consentire la sincronizzazione continua tra i propri apparati e possono essere distrutti
+                    in qualsiasi momento dall'utente tramite l'apposita funzione in-app di cancellazione del cloud.</p>
 
                 <h3>9. Diritti degli interessati</h3>
                 <p>Nella misura prevista dal Regolamento (UE) 2016/679 (GDPR) e dalla normativa applicabile, puoi
@@ -161,13 +190,13 @@
                         href="mailto:leogranata@gmail.com">leogranata@gmail.com</a>.</p>
                 <p>Per i trattamenti effettuati da Sentry, dagli store, da RevenueCat o dal gestore del portale WebCrew
                     Trenitalia, si applicano rispettivamente i loro canali e informative.</p>
-                <p>Come eliminare i dati locali e cosa non è cancellabile da Crew+: vedi la pagina
+                <p>Come eliminare i dati locali e cloud: vedi la pagina
                     <a href="#account-deletion" onclick="return showSection('account-deletion')">Cancellazione account e dati</a>.</p>
 
                 <h3>10. Sicurezza</h3>
-                <p>Il Titolare adotta misure tecniche e organizzative appropriate compatibili con la natura dell’app,
-                    inclusa la protezione crittografica delle password e l’uso di archiviazione sicura del sistema
-                    operativo, nel rispetto dello stato dell’arte e delle funzionalità offerte dalla piattaforma.</p>
+                <p>Il Titolare adotta misure tecniche e organizzative appropriate, inclusa la cifratura a riposo delle
+                    password sul dispositivo, comunicazioni di rete crittografate (TLS/HTTPS) e crittografia end-to-end
+                    (AES-256-GCM) per ogni pacchetto di sincronizzazione tra dispositivi collegati.</p>
 
                 <h3>11. Modifiche</h3>
                 <p>Il Titolare può aggiornare la presente informativa. La versione aggiornata sarà pubblicata su questa
@@ -185,37 +214,48 @@
                 <div class="legal-page-inner">
                 <a href="#home" class="back-link" onclick="return showSection('home')">← Indice legale</a>
                 <h2>Cancellazione account e dati – Crew+</h2>
-                <p class="update-date">Ultimo aggiornamento: 25 luglio 2026</p>
+                <p class="update-date">Ultimo aggiornamento: 21 ottobre 2026</p>
 
-                <p>Questa pagina spiega come eliminare i dati gestiti da Crew+, come richiesto dalle policy degli
+                <p>Questa pagina spiega come eliminare i dati gestiti da Crew+, conformemente alle policy degli
                     store (account deletion / data deletion).</p>
 
-                <h3>1. Nessun account cloud Crew+</h3>
-                <p>Crew+ <strong>non</strong> crea un account sui server dello sviluppatore. I profili utente,
-                    le credenziali (protette sul dispositivo), i turni e le note restano <strong>locali</strong> sul
-                    telefono o sul tablet, salvo le sincronizzazioni che attivi tu (portale WebCrew, calendario
-                    dispositivo, segnalazione errori opt-in verso Sentry).</p>
+                <h3>1. Nessun account tradizionale Crew+</h3>
+                <p>Crew+ <strong>non</strong> richiede la creazione di un account classico (email e password) sui server dello sviluppatore.
+                    I profili, le credenziali di accesso al portale aziendale (memorizzate esclusivamente nel Secure Storage cifrato
+                    del singolo dispositivo), i turni e le note risiedono <strong>localmente</strong> sul tuo telefono, tablet o Mac.</p>
+                <p>Se utilizzi la funzione opzionale di sincronizzazione <strong>«Dispositivi collegati»</strong>, viene creato
+                    sul server di relay un archivio cifrato con crittografia end-to-end (E2EE) associato a un codice pseudonimo,
+                    senza associazione ad anagrafiche in chiaro.</p>
 
-                <h3>2. Come eliminare i dati dall’app</h3>
+                <h3>2. Come eliminare i dati dall’app e dal cloud</h3>
+                <p><strong>A. Eliminazione dei dati online sincronizzati («Dispositivi collegati»):</strong></p>
                 <ol>
-                    <li>Apri Crew+ → <strong>Impostazioni</strong> → <strong>Utenti</strong>.</li>
-                    <li>Seleziona il profilo da rimuovere.</li>
-                    <li>Usa <strong>Elimina utente</strong> (e, se disponibile, le opzioni per cancellare solo i dati
-                        turni) e conferma.</li>
+                    <li>Apri Crew+ sul tuo dispositivo principale → <strong>Impostazioni</strong> → <strong>Dispositivi collegati</strong>.</li>
+                    <li>Tocca l'icona del menu in alto a destra e seleziona <strong>Elimina dati cloud</strong> (oppure scollega tutti i dispositivi).</li>
+                    <li>Conferma l'operazione: l'intero archivio cifrato memorizzato online verrà <strong>immediatamente e definitivamente distrutto</strong> dai server di sincronizzazione.</li>
                 </ol>
-                <p>In questo modo vengono rimossi dal dispositivo il profilo locale, le credenziali salvate per quel
-                    profilo e i turni/note associati, nei limiti delle funzioni offerte dall’app.</p>
-                <p>In alternativa puoi disinstallare l’app: i dati locali di Crew+ vengono rimossi con
-                    l’applicazione (salvo backup che hai esportato tu in un file <code>.ivuplusdb</code> o eventi già
-                    scritti nel calendario di sistema).</p>
+
+                <p><strong>B. Eliminazione del profilo o dello storico turni locale:</strong></p>
+                <ol>
+                    <li>Apri Crew+ → <strong>Impostazioni</strong> → <strong>Profilo utente</strong>.</li>
+                    <li>Tocca <strong>Elimina utente</strong> (oppure <strong>Cancella dati turni</strong> per rimuovere solo lo storico turni) e conferma.</li>
+                </ol>
+
+                <p><strong>C. Ripristino completo dell’app (factory reset locale):</strong></p>
+                <ol>
+                    <li>Apri Crew+ → <strong>Impostazioni</strong> → <strong>Gestione dati</strong>.</li>
+                    <li>Tocca <strong>Elimina tutti i dati dell’applicazione</strong> e conferma.</li>
+                </ol>
+                <p>In questo modo vengono rimossi completamente dal dispositivo il profilo, le chiavi crittografiche, le credenziali salvate, i turni, le note e le preferenze personali.</p>
+                <p>In alternativa puoi disinstallare l’app: tutti i dati locali di Crew+ vengono cancellati con la disinstallazione (salvo file di backup <code>.cpb</code> salvati autonomamente nei documenti o eventi già scritti nel calendario di sistema).</p>
 
                 <h3>3. Cosa Crew+ non può cancellare</h3>
                 <ul>
                     <li><strong>Account WebCrew / Trenitalia</strong>: è gestito dal datore di lavoro e dal portale
                         aziendale. Per chiudere o modificare quell’account usa i canali del gestore del portale.</li>
-                    <li><strong>Eventi già creati sul calendario del telefono</strong>: dopo la sync restano sul
-                        calendario scelto; puoi eliminarli dalle app Calendario del sistema o disattivando/ripulendo
-                        il mirror dalle Impostazioni Crew+ dove previsto.</li>
+                    <li><strong>Eventi già creati sul calendario del telefono</strong>: dopo la sincronizzazione restano sul
+                        calendario scelto; puoi eliminarli dalle app Calendario di sistema o ripulendo
+                        il calendario dalle Impostazioni Crew+ dove previsto.</li>
                     <li><strong>Report di errore già inviati a Sentry</strong> (solo se avevi attivato
                         «Segnalazione errori»): puoi disattivare l’opt-in in qualsiasi momento; per richieste su dati
                         già trasmessi contatta <a href="mailto:leogranata@gmail.com">leogranata@gmail.com</a>.</li>
@@ -234,7 +274,7 @@
                 <div class="legal-page-inner">
                 <a href="#home" class="back-link" onclick="return showSection('home')">← Indice legale</a>
                 <h2>Termini di servizio – Crew+</h2>
-                <p class="update-date">Ultimo aggiornamento: 7 agosto 2026</p>
+                <p class="update-date">Ultimo aggiornamento: 21 ottobre 2026</p>
 
                 <h3>1. Parti e accettazione</h3>
                 <p>I presenti Termini di servizio (“Termini”) regolano l’uso dell’applicazione software Crew+ (“App”),
@@ -250,12 +290,13 @@
                 <p>Crew+ è un’applicazione per dispositivi mobili che consente, tra l’altro, di accedere tramite
                     browser integrato (WebView) al portale WebCrew Trenitalia e di utilizzare funzioni di supporto
                     all’organizzazione dei turni, inclusa — ove attivata dall’Utente — la copia dei turni sul calendario
-                    di sistema del dispositivo.</p>
+                    di sistema del dispositivo e la sincronizzazione crittografata end-to-end tra un numero limitato di
+                    dispositivi personali dell’Utente («Dispositivi collegati»).</p>
                 <p>L’App può offrire funzioni aggiuntive tramite abbonamento Crew+ Pro, gestito da Apple App Store o
                     Google Play (e RevenueCat per lo stato dell’abbonamento).</p>
                 <p>L’App è fornita come strumento di comodità. Le funzionalità dipendono dalla disponibilità tecnica del
                     dispositivo, dalla connettività di rete, dal corretto funzionamento dei sistemi del portale e —
-                    ove applicabile — dalle API del calendario di sistema e dagli store.</p>
+                    ove applicabile — dalle API del calendario di sistema, dai servizi di sincronizzazione e dagli store.</p>
 
                 <h3>3. Natura indipendente e assenza di affiliazione</h3>
                 <p>L’App non è sviluppata, sponsorizzata né approvata da Trenitalia S.p.A., da Ferrovie dello Stato
@@ -272,6 +313,9 @@
                         rapporto di lavoro o di servizio;</li>
                     <li>essere l’unico responsabile delle credenziali e dell’attività svolta tramite l’App sul proprio
                         dispositivo;</li>
+                    <li>utilizzare la funzione «Dispositivi collegati» esclusivamente su dispositivi di propria esclusiva
+                        disponibilità o uso personale, custodendo con cura la chiave e il codice QR di accoppiamento e
+                        non condividendoli con terze parti;</li>
                     <li>non impiegare l’App per scopi illeciti, per eludere misure di sicurezza o per interferire in modo
                         non autorizzato con sistemi di terzi.</li>
                 </ul>
@@ -291,7 +335,7 @@
                 <h3>6. Licenza d’uso dell’App</h3>
                 <p>Fatto salvo quanto diversamente indicato da licenze di componenti di terzi, il Fornitore concede
                     all’Utente una licenza personale, limitata, non esclusiva, non trasferibile e revocabile per
-                    installare e utilizzare l’App sul proprio dispositivo, nei limiti dei presenti Termini.</p>
+                    installare e utilizzare l’App sui propri dispositivi personali compatibili, nei limiti dei presenti Termini.</p>
                 <p>È vietato copiare, modificare, distribuire, vendere, noleggiare, decodificare o tentare di estrarre il
                     codice sorgente dell’App, salvo ove espressamente consentito dalla legge imperativa.</p>
 
@@ -315,14 +359,15 @@
                 <p>Il Fornitore non risponde per danni derivanti da: indisponibilità o malfunzionamento del portale
                     WebCrew Trenitalia o di reti di terzi; errori, ritardi o incongruenze nei dati visualizzati o
                     sincronizzati; uso improprio dell’App; interruzioni del calendario di sistema, degli store o del
-                    gestore del portale; perdita di dati non imputabile a dolo o colpa grave del Fornitore, ove
+                    gestore del portale; mancata sincronizzazione tra dispositivi dovuta a interruzione di connettività,
+                    disallineamento orario o eliminazione del cluster cloud da parte dell'Utente; perdita di dati non imputabile a dolo o colpa grave del Fornitore, ove
                     compatibile con la legge.</p>
                 <p>Restano salvi i diritti inderogabili spettanti all’Utente che rivesta la qualifica di consumatore ai
                     sensi del Codice del consumo (D.lgs. 206/2005), ove applicabile.</p>
 
                 <h3>10. Sospensione e cessazione</h3>
                 <p>L’Utente può cessare l’uso dell’App in qualsiasi momento (ad esempio disinstallando l’App e cancellando
-                    i dati locali).</p>
+                    i dati locali e cloud).</p>
                 <p>Il Fornitore può interrompere o limitare la distribuzione dell’App o funzioni della stessa per motivi
                     tecnici, legali o organizzativi, con le modalità consentite dalle piattaforme di distribuzione e
                     dalla legge.</p>
